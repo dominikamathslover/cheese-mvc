@@ -25,6 +25,10 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+//bootRun{
+//	addResources = true
+//}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
