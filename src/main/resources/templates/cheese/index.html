@@ -8,6 +8,8 @@
     <h1 th:text="${title}"> My cheese </h1>
 
     <p th:unless="${cheeseNames} and ${cheeseNames.size()}"> No cheese </p>
+
+    <a href="/cheese/add"> Add cheese </a>
 <ul>
     <li th:each="cheese : ${cheeseNames}" th:text="${cheese}"> </li>
 </ul>

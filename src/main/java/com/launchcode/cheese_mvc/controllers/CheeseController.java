@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -13,15 +14,11 @@ import java.util.ArrayList;
 @RequestMapping("cheese")
 public class CheeseController {
 
+    static ArrayList<String> cheeseNames= new ArrayList<String>();
+
+
     @RequestMapping(value = "")
     public String index(Model model) {
-
-        ArrayList<String> cheeseNames= new ArrayList<String>();
-        cheeseNames.add("cheddar");
-        cheeseNames.add("gouda");
-        cheeseNames.add("parmesan");
-        cheeseNames.add("mozzarella");
-        cheeseNames.add("camembert");
 
         model.addAttribute("cheeseNames", cheeseNames);
         model.addAttribute("title","My cheese");
@@ -35,10 +32,12 @@ public class CheeseController {
     }
 
     @RequestMapping(value="add", method =RequestMethod.POST)
-    public String processAddCheeseForm(HttpServletRequest request){
-        String cheeseName = request.getParameter("cheeseName");
-
+    public String processAddCheeseForm(@RequestParam String cheeseName) {
+        cheeseNames.add(cheeseName);
+        return "redirect:/cheese";
     }
+
+
 
 
 }
