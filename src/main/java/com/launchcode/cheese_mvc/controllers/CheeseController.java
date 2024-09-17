@@ -1,7 +1,5 @@
 package com.launchcode.cheese_mvc.controllers;
 
-import com.sun.net.httpserver.HttpServer;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
